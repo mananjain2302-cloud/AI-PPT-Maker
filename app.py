@@ -143,7 +143,7 @@ if (user_input) and (leader_agent):
             st.html(code, width="stretch",
                     unsafe_allow_javascript=True)
             except Exception as err:
-            st.error(err)
+              st.error(err)
   # tab 3 code:
   with tab3:
     if st.button("Generate PPT", key = "Gen-PPT"):
