@@ -153,7 +153,7 @@ if (user_input) and (leader_agent):
           st.html(code, width="stretch",
                   unsafe_allow_javascript=True)
         # file save
-        with open("ppt.html","w") as f:
+        with open("ppt.html","w"):
           f.write(code)
           
           st.download_button(label="DOWNLOAD PPT",
