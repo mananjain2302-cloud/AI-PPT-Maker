@@ -74,7 +74,7 @@ def generate_image(img_prompt, slide_no = 1):
 
   from PIL import Image
   img = Image.open(f"ai_image_{slide_no}.jpeg")
-  return img
+  return url
 
 def agent_prompt(query):
   """this helps to promptify the given user query,suppose user needs PPT based on
@@ -117,33 +117,34 @@ tools = [
 tab1,tab2,tab3=st.tabs(["Generate Image",
                         "Fetch Latest News",
                         "Generate PPT"])
-if (user_input) and (agent):
+if (user_input) and (leader_agent):
 # tab 1 code
   with tab1:
-    if st.button("Generate Image",keys-"Gen-Image"):
+    if st.button("Generate Image",key="Gen-Image"):
       with st.spinner("Running Agent"):
         try:
-          generate_image(user_input)
+          img=generate_image(user_input)
+          st.image(img)
         except:
           url-f"https://image.pollinations.ai/{img_prompt}"
           time.sleep(4)
           st.image(url)
   # tab 2 codde
   with tab2:
-      if st.button("Fetch News",keys-"Fetch-News"):
+      if st.button("Fetch News",key-"Fetch-News"):
       with st.spinner("Running Agent"):
         try:
           prompt="give news in html card format topic" + user_input
           response=leader_agent.imvoke({'messages',[{'role':'user',
-                                                     'content':prompt]]})
+                                                     'content':prompt}]})
           code = response['messages'] [-1].content[-1]['text']
           st.html(code, width="stretch",
-                  unsafe_allow_javascript=True)
+                  unsafe_allow_javascript=True)S
           except Exception as err:
           st.error(err)
   # tab 3 code:
   with tab3:
-    if st.button("Generate PPT", keys = "Gen-PPT"):
+    if st.button("Generate PPT", key = "Gen-PPT"):
       with st.spinner("Running Agent"):
       try:
         code run_agent(leader_agent, user_input)
