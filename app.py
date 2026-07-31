@@ -132,34 +132,34 @@ if (user_input) and (leader_agent):
   # tab 2 codde
   with tab2:
       if st.button("Fetch News",key-"Fetch-News"):
-      with st.spinner("Running Agent"):
-        try:
-          prompt="give news in html card format topic" + user_input
-          response=leader_agent.imvoke({'messages',[{'role':'user',
-                                                     'content':prompt}]})
-          code = response['messages'] [-1].content[-1]['text']
-          st.html(code, width="stretch",
-                  unsafe_allow_javascript=True)S
-          except Exception as err:
-          st.error(err)
+        with st.spinner("Running Agent"):
+          try:
+            prompt="give news in html card format topic" + user_input
+            response=leader_agent.imvoke({'messages',[{'role':'user',
+                                                       'content':prompt}]})
+            code = response['messages'] [-1].content[-1]['text']
+            st.html(code, width="stretch",
+                    unsafe_allow_javascript=True)S
+            except Exception as err:
+            st.error(err)
   # tab 3 code:
   with tab3:
     if st.button("Generate PPT", key = "Gen-PPT"):
       with st.spinner("Running Agent"):
-      try:
-        code run_agent(leader_agent, user_input)
-        st.html(code, width="stretch",
-                unsafe_allow_javascript=True)
+        try:
+          code =run_agent(leader_agent, user_input)
+          st.html(code, width="stretch",
+                  unsafe_allow_javascript=True)
         # file save
-        with open("ppt.html","w"):
+        with open("ppt.html","w") as f:
           f.write(code)
           
           st.download_button(label="DOWNLOAD PPT",
                              data = code,
                               file_name = 'ppt.html',
                               mime = 'text/html')
-      except Exception as err:
-        st.error(err)
+        except Exception as err:
+          st.error(err)
 else:
   st.error("SOMETHING WENT WRONG")
     
