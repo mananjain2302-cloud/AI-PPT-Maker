@@ -128,7 +128,7 @@ if (user_input) and (leader_agent):
           img=generate_image(user_input)
           st.image(img)
         except:
-          url-f"https://image.pollinations.ai/{img_prompt}"
+          url=f"https://image.pollinations.ai/{img_prompt}"
           time.sleep(4)
           st.image(url)
   # tab 2 codde
