@@ -152,14 +152,14 @@ if (user_input) and (leader_agent):
           code =run_agent(leader_agent, user_input)
           st.html(code, width="stretch",
                   unsafe_allow_javascript=True)
-        # file save
-        with open("ppt.html","w"):
-          f.write(code)
-          
-          st.download_button(label="DOWNLOAD PPT",
-                             data = code,
-                              file_name = 'ppt.html',
-                              mime = 'text/html')
+          # file save
+          with open("ppt.html","w"):
+            f.write(code)
+            
+            st.download_button(label="DOWNLOAD PPT",
+                               data = code,
+                                file_name = 'ppt.html',
+                                mime = 'text/html')
         except Exception as err:
           st.error(err)
 else:
