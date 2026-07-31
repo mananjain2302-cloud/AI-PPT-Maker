@@ -106,13 +106,15 @@ def run_agent(leader_agent, query):
   return code
 #============================ step 7 AGent call====================
 # leader_agent creation
-leader_agent = create_agent(
-model = model,
-tools = [
-      search_latest_info,
-      generate_image
-      ])
-
+if all(ALL_API):
+  leader_agent = create_agent(
+  model = model,
+  tools = [
+        search_latest_info,
+        generate_image
+        ])
+else:
+st.info("Pass-All-API-KEYS and re run")
 #===================== step 8 navibat streamlit=========================
 tab1,tab2,tab3=st.tabs(["Generate Image",
                         "Fetch Latest News",
