@@ -133,7 +133,7 @@ if (user_input) and (leader_agent):
           st.image(url)
   # tab 2 codde
   with tab2:
-      if st.button("Fetch News",key-"Fetch-News"):
+      if st.button("Fetch News",key="Fetch-News"):
         with st.spinner("Running Agent"):
           try:
             prompt="give news in html card format topic" + user_input
