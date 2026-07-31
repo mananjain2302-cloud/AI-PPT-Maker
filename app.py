@@ -141,7 +141,7 @@ if (user_input) and (leader_agent):
                                                        'content':prompt}]})
             code = response['messages'] [-1].content[-1]['text']
             st.html(code, width="stretch",
-                    unsafe_allow_javascript=True)S
+                    unsafe_allow_javascript=True)
             except Exception as err:
             st.error(err)
   # tab 3 code:
