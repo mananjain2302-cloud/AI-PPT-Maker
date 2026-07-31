@@ -142,7 +142,7 @@ if (user_input) and (leader_agent):
             code = response['messages'] [-1].content[-1]['text']
             st.html(code, width="stretch",
                     unsafe_allow_javascript=True)
-            except:
+          except:
               st.error(err)
   # tab 3 code:
   with tab3:
